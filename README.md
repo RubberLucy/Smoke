@@ -1,4 +1,3 @@
-# Smoke
 ## Project Name and Description
 ### Project Name: 
 Smoke (A Steam-like platform for programmers)
