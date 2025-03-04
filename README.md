@@ -1,38 +1,33 @@
-## Project Name and Description
-### Project Name: 
-Smoke (A Steam-like platform for programmers)
+## שם הפרויקט והתיאור
+### שם הפרויקט: 
+Smoke (פלטפורמה דמויית Steam למתכנתים)
 
-### Project Description:
-Smoke is a web application that allows users to purchase niche-developed computer games. Additionally, it enables users to browse projects created by developers and published on their profiles, making it an excellent platform for job hunting and discovering new games.
+### תיאור הפרויקט:
+Smoke הוא אפליקציית אינטרנט המאפשרת למשתמשים לרכוש משחקי מחשב מפותחים בניש. בנוסף, היא מאפשרת למשתמשים לעיין בפרויקטים שנוצרו על ידי מפתחים ופורסמו בפרופילים שלהם, וכך מהווה פלטפורמה מעולה לחיפוש עבודה וגילוי משחקים חדשים.
 
-### Problem the Project Solves:
-Currently, the job market for game developers and programmers is highly saturated. This platform helps developers gain more exposure while showcasing their skills to potential employers.
+### הבעיה שהפרויקט פותר:
+כיום, שוק העבודה למפתחי משחקים ומתכנתים הוא רווי מאוד. פלטפורמה זו עוזרת למפתחים להשיג חשיפה רבה יותר תוך הצגת כישוריהם למעסים פוטנציאליים.
 
-### Target Audience:
-Web developers
-Game developers
-Companies looking to hire developers
+### קהל היעד:
+מפתחי אינטרנט
+מפתחי משחקים
+חברות המחפשות לגייס מפתחים
 
+## דרישות המערכת
 
+### דרישות תפקודיות:
+משתמשים יכולים ליצור חשבון ולהתחבר בכל עת.
+משתמשים יכולים ליצור פרופיל אישי הכולל קורות חיים ותיק עבודות.
+משתמשים יכולים לפרסם ולרכוש משחקים.
+המערכת תציג משחקים ופרופילים בדף הבית.
 
-
-## System Requirements
-
-### Functional Requirements:
-Users can create an account and log in at any time.
-Users can create a personal profile that includes their resume and portfolio.
-Users can publish and purchase games.
-The system will display games and profiles on the homepage.
-
-### Technical Requirements:
+### דרישות טכניות:
 Frontend: HTML, CSS, JavaScript, GML
 Backend: Node.js, Express
-Database: MongoDB
+מסד נתונים: MongoDB
 
-### Navigation Flowchart
-Main Screens:
-Homepage → Displays games and profiles
-Login Page → Allows users to log into the system
-User Page → Displays the user’s profile
-
-
+### תרשים זרימת ניווט
+מסכים עיקריים:
+דף הבית → מציג משחקים ופרופילים
+דף כניסה → מאפשר למשתמשים להתחבר למערכת
+דף משתמש → מציג את הפרופיל של המשתמש

@@ -133,6 +133,8 @@ header {
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease;
+    outline: 10 px var(--primary-color);
+    outline-offset: 4px; 
     margin: 1% 2% 15% 2%;
 }
 
