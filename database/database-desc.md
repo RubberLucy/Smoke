@@ -1,1 +1,0 @@
-this will contain the connection to the database of smoke
