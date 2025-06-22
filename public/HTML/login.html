@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>התחברות - Smoke פלטפורמה למתכנתים</title>
+    <link rel="stylesheet" href="styles/login-styles.css">
+    <script src="functionality/login-func.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="./index.html" class="logo">S<span>moke</span></a>
+            <nav class="nav-links">
+                <a href="./creators.html">מפתחים</a>
+                <a href="./community.html">קהילה</a>
+                <a href="./about.html">אודות</a>
+            </nav>
+            <div class="user-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="חיפוש...">
+                </div>
+                <a href="./login.html" class="btn active">התחברות</a>
+                <a href="./register.html" class="btn">הרשמה</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="login-main">
+        <div class="container">
+            <div class="login-container">
+                <div class="login-form-wrapper">
+                    <h1>התחברות לחשבון</h1>
+                    <p class="login-subtitle">ברוכים השבים לפלטפורמת Smoke</p>
+                    <form class="login-form" id="loginForm">
+                        <div class="form-group">
+                            <label for="email">כתובת אימייל</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">סיסמה</label>
+                            <div class="password-input-wrapper">
+                                <input type="password" id="password" name="password" required>
+                            </div>
+                            <span class="error-message" id="passwordError"></span>
+                        </div>
+                        <div class="form-options">
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" id="rememberMe" name="rememberMe">
+                                זכור אותי
+                            </label>
+                        </div>
+                        <button type="submit" class="login-btn">התחבר</button>
+                    </form>
+                    <div class="social-login">
+                        <button class="social-btn google-btn">
+                            התחבר עם Google
+                        </button>
+                        <button class="social-btn github-btn">
+                            התחבר עם GitHub
+                        </button>
+                    </div>
+                    <div class="register-link">
+                        <p>אין לך חשבון? <a href="./register.html">הירשם כאן</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
