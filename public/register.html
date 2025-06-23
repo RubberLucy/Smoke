@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הרשמה - Smoke פלטפורמה למתכנתים</title>
+    <link rel="stylesheet" href="styles/register-styles.css">
+    <script src="functionality/register-func.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="./index.html" class="logo">S<span>moke</span></a>
+            <nav class="nav-links">
+                <a href="./creators.html">מפתחים</a>
+                <a href="./community.html">קהילה</a>
+                <a href="./about.html">אודות</a>
+            </nav>
+            <div class="user-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="חיפוש...">
+                </div>
+                <a href="./login.html" class="btn">התחברות</a>
+                <a href="./register.html" class="btn active">הרשמה</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="register-main">
+        <div class="container">
+            <div class="register-container">
+                <div class="register-form-wrapper">
+                    <h1>הצטרף לפלטפורמת Smoke</h1>
+                    <p class="register-subtitle">צור חשבון והתחל להציג את הכישרון שלך</p>
+                    
+                    
+                    <form class="register-form" id="registerForm">
+                        <!-- Step 1: Personal Information -->
+                        <div class="form-step active" id="step1">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">שם פרטי</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                    <span class="error-message" id="firstNameError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">שם משפחה</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                    <span class="error-message" id="lastNameError"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">כתובת אימייל</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password">סיסמה</label>
+                                <div class="password-input-wrapper">
+                                    <input type="password" id="password" name="password" required>
+                                    <button type="button" class="password-toggle" id="passwordToggle">👁️</button>
+                                </div>
+                                <div class="password-strength" id="passwordStrength">
+                                    <div class="strength-bar">
+                                        <div class="strength-fill"></div>
+                                    </div>
+                                    <span class="strength-text"></span>
+                                </div>
+                                <span class="error-message" id="passwordError"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirmPassword">אימות סיסמה</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                                <span class="error-message" id="confirmPasswordError"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Navigation Buttons -->
+                        <div class="form-navigation">
+                            <button type="submit" class="nav-btn submit-btn" id="submitBtn">צור חשבון</button>
+                        </div>
+                    </form>
+                    
+                    <div class="divider">
+                        <span></span>
+                    </div>
+                    
+                    <div class="social-register">
+                        <button class="social-btn google-btn">
+                            <span class="social-icon"></span>
+                            הירשם עם Google
+                        </button>
+                        <button class="social-btn github-btn">
+                            <span class="social-icon"></span>
+                            הירשם עם GitHub
+                        </button>
+                    </div>
+                    
+                    <div class="login-link">
+                        <p>כבר יש לך חשבון? <a href="./login.html">התחבר כאן</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 פלטפורמת Smoke. כל הזכויות שמורות.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
