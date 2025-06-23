@@ -87,11 +87,9 @@ header {
     background: linear-gradient(135deg, #1a1a1a 0%, #2d1f3d 100%);
 }
 .login-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
-    max-width: 1000px;
+    max-width: 750px;
     margin: 0 auto;
 }
 .login-form-wrapper {
