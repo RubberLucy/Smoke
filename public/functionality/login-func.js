@@ -1,16 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const loginForm = document.getElementById('loginForm');
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-    const passwordToggle = document.getElementById('passwordToggle');
-    const emailError = document.getElementById('emailError');
-    const passwordError = document.getElementById('passwordError');
-    const rememberMeCheckbox = document.getElementById('rememberMe');
+    // Form elements
+    const form = document.getElementById('loginForm');
     const googleBtn = document.querySelector('.google-btn');
     const githubBtn = document.querySelector('.github-btn');
 
     // Validation 
-    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Collect form data
+            const formData = new URLSearchParams(new FormData(form));
+
+            fetch('/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    window.location.href = '/';
+                } else {
+                    alert(result.message || 'שגיאה בהתחברות');
+                }
+            })
+            .catch(() => alert('שגיאה בחיבור לשרת'));
+        });
+    }
 
     // Social login buttons
     googleBtn.addEventListener('click', function() {

@@ -34,19 +34,14 @@
                     <p class="register-subtitle">צור חשבון והתחל להציג את הכישרון שלך</p>
                     
                     
-                    <form class="register-form" id="registerForm">
+                    <form action="/register" method="post" class="register-form" id="registerForm">
                         <!-- Step 1: Personal Information -->
                         <div class="form-step active" id="step1">
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="firstName">שם פרטי</label>
-                                    <input type="text" id="firstName" name="firstName" required>
-                                    <span class="error-message" id="firstNameError"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="lastName">שם משפחה</label>
-                                    <input type="text" id="lastName" name="lastName" required>
-                                    <span class="error-message" id="lastNameError"></span>
+                                    <label for="username">שם משתמש</label>
+                                    <input type="text" id="username" name="username" required>
+                                    <span class="error-message" id="username"></span>
                                 </div>
                             </div>
                             

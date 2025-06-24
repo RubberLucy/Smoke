@@ -1,20 +1,11 @@
 // Registration functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('registerForm');
-    const steps = document.querySelectorAll('.form-step');
-    const stepIndicators = document.querySelectorAll('.step');
-    const submitBtn = document.getElementById('submitBtn');
-
-    let currentStep = 1;
-    const totalSteps = 3;
-    
     // Form elements
-    const firstNameInput = document.getElementById('firstName');
-    const lastNameInput = document.getElementById('lastName');
-    const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirmPassword');
     const passwordToggle = document.getElementById('passwordToggle');
+    const form = document.getElementById('registerForm');
+
     
     // Password visibility toggle
     passwordToggle.addEventListener('click', function() {
@@ -85,28 +76,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function submitToServer() {
-    const data = {
-        firstName: firstNameInput.value,
-        lastName: lastNameInput.value,
-        email: emailInput.value,
-        password: passwordInput.value
-    };
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-    fetch('/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data)
-    })
-    .then(response => response.json())
-    .then(result => {
-        if (result.success) {
-            alert('נרשמת בהצלחה!');
-            window.location.href = './login.html';
-        } else {
-            alert('שגיאה בהרשמה: ' + (result.message || 'נסה שוב'));
-        }
-    })
-    .catch(() => alert('שגיאה בחיבור לשרת'));
-}
+            // Collect form data
+            const formData = new URLSearchParams(new FormData(form));
+
+            fetch('/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: formData
+            })
+            .then(result => {
+                if (result.success) {
+                    window.location.href = '/'; 
+                } else {
+                    alert(result.message || 'שגיאה בהרשמה');
+                }
+            })
+            .catch(() => alert('שגיאה בחיבור לשרת'));
+        });
+    }
 });
