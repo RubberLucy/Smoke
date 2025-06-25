@@ -26,6 +26,10 @@ app.get('/register', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'register.html'));
 });
 
+app.get('/about', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'about.html')); 
+});
+
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
   db.get('SELECT * FROM users WHERE email = ? AND password = ?', [email, password], (err, row) => {
@@ -53,6 +57,21 @@ app.post('/register', (req, res) => {
       res.send({ success: true, message: 'User registered!' });
     });
   });
+});
+
+app.post('/contact', (req, res) => {
+  const { fullname, email, message } = req.body;   
+
+  if (!fullname || !email || !message) {
+    return res.status(400).json({ success: false, message: 'All fields are required' });
+  }
+  db.run('INSERT INTO contact (fullname, email, message) VALUES (?, ?, ?)', [fullname, email, message], function(err) {
+    if (err) {
+      return res.status(500).json({ success: false, message: 'Failed to send message' });
+    }
+    res.json({ success: true, message: 'Message sent successfully!' });
+  });
+
 });
 
 app.listen(PORT, () => {
