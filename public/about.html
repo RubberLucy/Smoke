@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אודות - Smoke פלטפורמה למתכנתים</title>
+    <link rel="stylesheet" href="styles/about-styles.css">
+    <script src="functionality/about-func.js" defer></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <a href="./index.html" class="logo">S<span>moke</span></a>
+            <nav class="nav-links">
+                <a href="./creators.html">מפתחים</a>
+                <a href="./community.html">קהילה</a>
+                <a href="./about.html" class="active">אודות</a>
+            </nav>
+            <div class="user-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="חיפוש...">
+                </div>
+                <a href="./login.html" class="btn">התחברות</a>
+                <a href="./register.html" class="btn">הרשמה</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>אודות Smoke</h1>
+            <p>הפלטפורמה המובילה לחיבור בין מפתחי משחקים לחברות טכנולוגיה בישראל</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Mission Section -->
+        <section class="mission-section">
+            <div class="section-content">
+                <h2 class="section-title">המשימה שלי</h2>
+                <p class="mission-text">
+                    ב-Smoke אני מאמין שלכל מפתח משחקים מגיע הזדמנות להציג את הכישרון שלו לעולם. 
+                    המטרה שלני היא ליצור גשר בין מפתחים מוכשרים לבין חברות שמחפשות את התוספת המושלמת לצוות שלהן.
+                </p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="1500">0</div>
+                        <div class="stat-label">מפתחים רשומים</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="300">0</div>
+                        <div class="stat-label">משחקים בפלטפורמה</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="85">0</div>
+                        <div class="stat-label">חברות שותפות</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="250">0</div>
+                        <div class="stat-label">הצלחות גיוס</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Values Section -->
+        <section class="values-section">
+            <div class="section-content">
+                <h2 class="section-title">הערכים שלנו</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🎮</div>
+                        <h3>תשוקה למשחקים</h3>
+                        <p>אנו מאמינים שפיתוח משחקים זה לא רק עבודה, אלא אמנות ותשוקה שצריכה להיות נגישה לכולם.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3>קהילתיות</h3>
+                        <p>יצירת קהילה תומכת שבה מפתחים יכולים ללמוד, לחלוק ולגדול יחד.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">💡</div>
+                        <h3>חדשנות</h3>
+                        <p>עידוד יצירתיות וחשיבה מחוץ לקופסה בכל פרויקט ופתרון.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🌟</div>
+                        <h3>איכות</h3>
+                        <p>מחויבות למצוינות בכל היבט של הפלטפורמה והשירותים שלנו.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="section-content">
+                <h2 class="section-title">צור קשר</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>בואו נתחבר</h3>
+                        <p>יש לכם שאלות? רעיונות? או סתם רוצים לדבר על משחקים? אנחנו כאן בשבילכם!</p>
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <span class="contact-icon">📧</span>
+                                <div>
+                                    <strong>אימייל</strong>
+                                    <p>hello@smoke.co.il</p>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <span class="contact-icon">💬</span>
+                                <div>
+                                    <strong>דיסקורד</strong>
+                                    <p>smoke-community</p>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <span class="contact-icon">🐦</span>
+                                <div>
+                                    <strong>טוויטר</strong>
+                                    <p>@SmokeIsrael</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="fullname">שם מלא</label>
+                                <input type="text" id="fullname" name="fullname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">אימייל</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">נושא</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">בחר נושא</option>
+                                    <option value="general">שאלה כללית</option>
+                                    <option value="support">תמיכה טכנית</option>
+                                    <option value="partnership">שיתוף פעולה</option>
+                                    <option value="feedback">משוב</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">הודעה</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">שלח הודעה</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
