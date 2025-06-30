@@ -30,6 +30,19 @@ app.get('/about', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'about.html')); 
 });
 
+app.get('/api/creators', (req, res) => {
+  db.all(`
+    SELECT users.id, users.username, users.email, contact.fullname, contact.message
+    FROM users
+    LEFT JOIN contact ON users.email = contact.email
+  `, (err, rows) => {
+    if (err) {
+      return res.status(500).json({ success: false, message: 'Database error' });
+    }
+    res.json({ success: true, creators: rows });
+  });
+});
+
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
   db.get('SELECT * FROM users WHERE email = ? AND password = ?', [email, password], (err, row) => {
@@ -37,7 +50,7 @@ app.post('/login', (req, res) => {
       return res.status(500).json({ success: false, message: 'Database error' });
     }
     if (row) {
-      return res.json({ success: true, message: 'Login successful!' });
+      return res.json({ success: true, message: 'Login successful!', userId: row.id }); // <-- add userId
     }
     res.json({ success: false, message: 'Invalid username or password' });
   });
@@ -57,6 +70,24 @@ app.post('/register', (req, res) => {
       res.send({ success: true, message: 'User registered!' });
     });
   });
+});
+
+app.post('/add-project', (req, res) => {
+  const { user_id, title, description, category, status, tags, link, image } = req.body;
+  if (!user_id || !title) {
+    return res.status(400).json({ success: false, message: 'Missing required fields' });
+  }
+  db.run(
+    `INSERT INTO projects (user_id, title, description, category, status, tags, link, image)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+    [user_id, title, description, category, status, tags, link, image],
+    function(err) {
+      if (err) {
+        return res.status(500).json({ success: false, message: 'Failed to add project' });
+      }
+      res.json({ success: true, project_id: this.lastID });
+    }
+  );
 });
 
 app.post('/contact', (req, res) => {

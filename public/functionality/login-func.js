@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
-                    window.location.href = '/';
+                    localStorage.setItem('userId', result.userId); // Make sure your server returns userId
+                    window.location.href = '/profile.html';
                 } else {
                     alert(result.message || 'שגיאה בהתחברות');
                 }
