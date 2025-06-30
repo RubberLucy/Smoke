@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מפתחים - Smoke פלטפורמה למתכנתים</title>
+    <link rel="stylesheet" href="styles/creators-styles.css">
+    <script src="functionality/creators-func.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <a href="./index.html" class="logo">S<span>moke</span></a>
+            <nav class="nav-links">
+                <a href="./creators.html" class="active">מפתחים</a>
+                <a href="./about.html">אודות</a>
+            </nav>
+            <div class="user-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="חיפוש מפתחים...">
+                </div>
+                <a href="./login.html" class="btn">התחברות</a>
+                <a href="./register.html" class="btn">הרשמה</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>מפתחי המשחקים המובילים</h1>
+            <p>גלה את הכישרונות הטובים ביותר בתעשיית הפיתוח הישראלית</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <label class="filters-label">התמחויות:</label>
+                <div class="specialty-tags">
+                    <button class="specialty-tag active">הכל</button>
+                    <button class="specialty-tag">Unity</button>
+                    <button class="specialty-tag">Unreal Engine</button>
+                    <button class="specialty-tag">Mobile Games</button>
+                    <button class="specialty-tag">Web Games</button>
+                    <button class="specialty-tag">AR/VR</button>
+                    <button class="specialty-tag">Indie Games</button>
+                    <button class="specialty-tag">Game Design</button>
+                    <button class="specialty-tag">2D Art</button>
+                    <button class="specialty-tag">3D Modeling</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Creators Grid -->
+        <section class="creators-section">
+            <h2 class="section-title">מפתחים פעילים</h2>
+            <div class="creators-grid" id="creatorsGrid">
+
+            </div>
+        </section>
+    </main>
+
+    <div id="profileModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modalProfileContent"></div>
+        </div>
+    </div>
+</body>
+</html>
