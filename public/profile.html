@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>פרופיל - Smoke פלטפורמה למתכנתים</title>
     <link rel="stylesheet" href="styles/profile-styles.css">
-    <script src="functionality/profile-func.js"></script>
+    <script src="functionality/profile-func.js" defer></script>
+
 </head>
 <body>
     <!-- Header -->
@@ -17,8 +18,8 @@
                 <a href="./about.html">אודות</a>
                 <a href="./profile.html" class="active">פרופיל</a>
             </nav>
-            <div class="user-actions">
-                <button class="btn btn-outline">התנתק</button>
+            <div class="header-actions">
+                
             </div>
         </div>
     </header>
@@ -27,31 +28,11 @@
     <section class="profile-header">
         <div class="container">
             <div class="profile-info">
-                <div class="profile-avatar" onclick="openAvatarModal()">
-                    ד
+                <div class="profile-avatar">
                     <div class="avatar-edit">✏</div>
                 </div>
                 <div class="profile-details">
                     <h1>דני כהן</h1>
-                    <p>Unity Developer | ניסיון של 5 שנים</p>
-                    <div class="profile-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">12</div>
-                            <div class="stat-label">פרויקטים</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">1,547</div>
-                            <div class="stat-label">עוקבים</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">4.8</div>
-                            <div class="stat-label">דירוג</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">89%</div>
-                            <div class="stat-label">השלמת פרויקטים</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -66,10 +47,6 @@
                 <div class="sidebar-card">
                     <h3 class="card-title">כישורים</h3>
                     <div class="skills-grid" id="skillsGrid">
-                        <span class="skill-tag removable">Unity <span class="skill-remove" onclick="removeSkill(this)">×</span></span>
-                        <span class="skill-tag removable">C# <span class="skill-remove" onclick="removeSkill(this)">×</span></span>
-                        <span class="skill-tag removable">Mobile <span class="skill-remove" onclick="removeSkill(this)">×</span></span>
-                        <span class="skill-tag removable">AR <span class="skill-remove" onclick="removeSkill(this)">×</span></span>
                     </div>
                     <div class="add-skill">
                         <input type="text" id="newSkill" placeholder="הוסף כישור חדש">
@@ -77,35 +54,9 @@
                     </div>
                 </div>
 
-                <!-- Contact Info -->
-                <div class="sidebar-card">
-                    <h3 class="card-title">פרטי התקשרות</h3>
-                    <div class="form-group">
-                        <label class="form-label">טלפון</label>
-                        <input type="tel" class="form-input" value="050-1234567">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">אימייל</label>
-                        <input type="email" class="form-input" value="danny@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">מיקום</label>
-                        <select class="form-select">
-                            <option>תל אביב</option>
-                            <option>ירושלים</option>
-                            <option>חיפה</option>
-                            <option>עבודה מרחוק</option>
-                        </select>
-                    </div>
-                    <button class="btn btn-success">שמור שינויים</button>
-                </div>
-
                 <!-- Quick Actions -->
                 <div class="sidebar-card">
-                    <h3 class="card-title">פעולות מהירות</h3>
                     <button class="btn" style="width: 100%; margin-bottom: 10px;" onclick="openAddWorkModal()">הוסף פרויקט חדש</button>
-                    <button class="btn btn-outline" style="width: 100%; margin-bottom: 10px;">ייצא פרופיל</button>
-                    <button class="btn btn-warning" style="width: 100%;">הגדרות פרופיל</button>
                 </div>
             </aside>
 
@@ -115,61 +66,18 @@
                 <div class="main-card">
                     <div class="tab-navigation">
                         <button class="tab-btn active" onclick="switchTab('works')">הפרויקטים שלי</button>
-                        <button class="tab-btn" onclick="switchTab('analytics')">סטטיסטיקות</button>
                         <button class="tab-btn" onclick="switchTab('settings')">הגדרות</button>
                     </div>
 
                     <!-- Works Tab -->
                     <div id="works-tab" class="tab-content active">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                            <h2>הפרויקטים שלי (12)</h2>
+                            <h2>הפרויקטים שלי</h2>
                             <button class="btn" onclick="openAddWorkModal()">הוסף פרויקט</button>
                         </div>
                         
                         <div class="works-grid" id="worksGrid">
                             <!-- Works will be populated here -->
-                        </div>
-                    </div>
-
-                    <!-- Analytics Tab -->
-                    <div id="analytics-tab" class="tab-content">
-                        <h2 style="margin-bottom: 20px;">סטטיסטיקות ואנליטיקה</h2>
-                        
-                        <div class="analytics-grid">
-                            <div class="analytics-card">
-                                <div class="analytics-number">2,847</div>
-                                <div class="analytics-label">צפיות בפרופיל</div>
-                            </div>
-                            <div class="analytics-card">
-                                <div class="analytics-number">156</div>
-                                <div class="analytics-label">הורדות</div>
-                            </div>
-                            <div class="analytics-card">
-                                <div class="analytics-number">43</div>
-                                <div class="analytics-label">פניות עבודה</div>
-                            </div>
-                            <div class="analytics-card">
-                                <div class="analytics-number">4.8</div>
-                                <div class="analytics-label">ממוצע דירוגים</div>
-                            </div>
-                        </div>
-
-                        <div style="background: rgba(61, 41, 82, 0.3); padding: 20px; border-radius: 8px;">
-                            <h3 style="margin-bottom: 15px;">הפרויקטים הפופולריים ביותר</h3>
-                            <div style="display: flex; flex-direction: column; gap: 10px;">
-                                <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 4px;">
-                                    <span>Adventure Quest</span>
-                                    <span>847 צפיות</span>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 4px;">
-                                    <span>Mobile Runner</span>
-                                    <span>623 צפיות</span>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 4px;">
-                                    <span>AR Explorer</span>
-                                    <span>445 צפיות</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -181,11 +89,11 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label class="form-label">שם מלא</label>
-                                    <input type="text" class="form-input" value="דני כהן">
+                                    <input type="text" class="form-input" id="settingsUsername">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">תחום התמחות</label>
-                                    <select class="form-select">
+                                    <select class="form-select" id="settingsSpecialty">
                                         <option>Unity Developer</option>
                                         <option>Unreal Developer</option>
                                         <option>Mobile Developer</option>
@@ -200,13 +108,13 @@
 
                             <div class="form-group">
                                 <label class="form-label">אודותיי</label>
-                                <textarea class="form-textarea" placeholder="ספר על עצמך, הניסיון שלך ומה מניע אותך...">מפתח Unity עם 5 שנות ניסיון בפיתוח משחקים למובייל ו-AR. מתמחה ביצירת חוויות משחק מרתקות ואינטראקטיביות.</textarea>
+                                <textarea class="form-textarea" id="settingsBio"></textarea>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group">
                                     <label class="form-label">רמת ניסיון</label>
-                                    <select class="form-select">
+                                    <select class="form-select" id="settingsExperience">
                                         <option>Junior (0-2 שנים)</option>
                                         <option>Mid-level (2-5 שנים)</option>
                                         <option>Senior (5+ שנים)</option>
@@ -215,21 +123,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">זמינות לעבודה</label>
-                                    <select class="form-select">
+                                    <select class="form-select" id="settingsAvailability">
                                         <option>זמין למשרה מלאה</option>
                                         <option>זמין לפרילנס</option>
                                         <option>זמין לפרויקטים קצרים</option>
                                         <option>לא זמין כרגע</option>
                                     </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">קישורים חיצוניים</label>
-                                <div style="display: flex; flex-direction: column; gap: 10px;">
-                                    <input type="url" class="form-input" placeholder="GitHub Profile">
-                                    <input type="url" class="form-input" placeholder="LinkedIn Profile">
-                                    <input type="url" class="form-input" placeholder="Portfolio Website">
                                 </div>
                             </div>
 
@@ -314,4 +213,4 @@
     </div>
 </body>
 </html>
-    
+            

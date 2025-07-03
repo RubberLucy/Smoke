@@ -7,25 +7,18 @@ db.serialize(() => {
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT NOT NULL UNIQUE,
     email TEXT NOT NULL UNIQUE,
-    password TEXT NOT NULL
+    password TEXT NOT NULL,
+    specialty TEXT,
+    bio TEXT,
+    experience TEXT,
+    availability TEXT
   )`);
+
   db.run(`CREATE TABLE IF NOT EXISTS contact (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     fullname TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
     message TEXT NOT NULL
-  )`);
-  db.run(`CREATE TABLE IF NOT EXISTS projects (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER NOT NULL,
-    title TEXT NOT NULL,
-    description TEXT,
-    category TEXT,
-    status TEXT,
-    tags TEXT,
-    link TEXT,
-    image TEXT,
-    FOREIGN KEY(user_id) REFERENCES users(id)
   )`);
 });
 

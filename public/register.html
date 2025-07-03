@@ -8,20 +8,18 @@
     <script src="functionality/register-func.js" defer></script>
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <div class="container header-content">
             <a href="./index.html" class="logo">S<span>moke</span></a>
             <nav class="nav-links">
                 <a href="./creators.html">מפתחים</a>
-                <a href="./community.html">קהילה</a>
                 <a href="./about.html">אודות</a>
+                <a href="./profile.html">פרופיל</a>
             </nav>
             <div class="user-actions">
-                <div class="search-box">
-                    <input type="text" placeholder="חיפוש...">
-                </div>
                 <a href="./login.html" class="btn">התחברות</a>
-                <a href="./register.html" class="btn active">הרשמה</a>
+                <a href="./register.html" class="btn">הרשמה</a>
             </div>
         </div>
     </header>
@@ -35,7 +33,6 @@
                     
                     
                     <form action="/register" method="post" class="register-form" id="registerForm">
-                        <!-- Step 1: Personal Information -->
                         <div class="form-step active" id="step1">
                             <div class="form-row">
                                 <div class="form-group">
@@ -76,6 +73,7 @@
                         <!-- Navigation Buttons -->
                         <div class="form-navigation">
                             <button type="submit" class="nav-btn submit-btn" id="submitBtn">צור חשבון</button>
+                            <a href="./creator-register.html" class="nav-btn submit-btn" id="registerAsCreator"> להרשם כמפתח</a>
                         </div>
                     </form>
                     

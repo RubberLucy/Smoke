@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(result => {
                 if (result.success) {
                     localStorage.setItem('userId', result.userId); // Make sure your server returns userId
-                    window.location.href = '/profile.html';
+                    window.location.href = '/index.html';
                 } else {
                     alert(result.message || 'שגיאה בהתחברות');
                 }

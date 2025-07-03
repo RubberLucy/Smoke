@@ -30,6 +30,30 @@ app.get('/about', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'about.html')); 
 });
 
+app.get('/profile', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'profile.html'));
+});
+app.get('/creators', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'creators.html'));
+});
+
+app.post('/api/user/:id/update', (req, res) => {
+  const userId = req.params.id;
+  const { username, specialty, bio, experience, availability } = req.body;
+
+  db.run(
+    `UPDATE users SET username = ?, specialty = ?, bio = ?, experience = ?, availability = ? WHERE id = ?`,
+    [username, specialty, bio, experience, availability, userId],
+    function(err) {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ success: false, message: 'Failed to update user' });
+      }
+      res.json({ success: true });
+    }
+  );
+});
+
 app.get('/api/creators', (req, res) => {
   db.all(`
     SELECT users.id, users.username, users.email, contact.fullname, contact.message
@@ -42,6 +66,20 @@ app.get('/api/creators', (req, res) => {
     res.json({ success: true, creators: rows });
   });
 });
+
+app.get('/api/user/:id', (req, res) => {
+  const userId = req.params.id;
+  db.get('SELECT id, username, email FROM users WHERE id = ?', [userId], (err, row) => {
+    if (err) {
+      return res.status(500).json({ success: false, message: 'Database error' });
+    }
+    if (!row) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+    res.json({ success: true, user: row });
+  });
+});
+
 
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
