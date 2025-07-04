@@ -10,10 +10,29 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => {
             if (data.success) {
                 const user = data.user;
-                document.querySelector('.profile-details h1').textContent = user.username;
-                document.getElementById('settings-tab').querySelector('input.form-input').value = user.username;
-                document.getElementById('profileUsername').textContent = user.username;
-                document.getElementById('profileEmail').textContent = user.email;
+                
+                const profile_details = document.getElementById('profileDetails');
+                const name = user.username || 'לא הוגדר';
+                const specialty = user.specialty || 'לא הוגדר';  
+                const experience = user.experience || 'לא הוגדר';
+                const availability = user.availability || 'לא הוגדר';
+
+                profile_details.innerHTML = `
+                    <h1>${name}</h1>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">${specialty}</div>
+                            <div class="stat-label">התמחות</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">${experience}</div>
+                            <div class="stat-label">ניסיון</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">${availability}</div>
+                            <div class="stat-label">זמינות</div>
+                        </div>
+                    </div>`
             }
         })
         .catch(err => console.error('Error fetching user data:', err));
@@ -67,11 +86,6 @@ document.addEventListener('DOMContentLoaded', function () {
         addWorkModal.style.display = 'none';
         addWorkForm.reset();
     };
-
-    // Close modal on background click
-    addWorkModal.addEventListener('click', function (e) {
-        if (e.target === addWorkModal) window.closeAddWorkModal();
-    });
 
     // Add Work Submission
     addWorkForm.addEventListener('submit', function (e) {

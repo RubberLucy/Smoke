@@ -15,11 +15,11 @@
             <a href="./index.html" class="logo">S<span>moke</span></a>
             <nav class="nav-links">
                 <a href="./creators.html">מפתחים</a>
-                <a href="./about.html">אודות</a>
                 <a href="./profile.html" class="active">פרופיל</a>
             </nav>
-            <div class="header-actions">
-                
+            <div class="user-actions">
+                <a href="./login.html" class="btn">התחברות</a>
+                <a href="./register.html" class="btn">הרשמה</a>
             </div>
         </div>
     </header>
@@ -28,11 +28,11 @@
     <section class="profile-header">
         <div class="container">
             <div class="profile-info">
-                <div class="profile-avatar">
+                <div class="profile-avatar" onclick="openAvatarModal()">
+                    ד
                     <div class="avatar-edit">✏</div>
                 </div>
-                <div class="profile-details">
-                    <h1>דני כהן</h1>
+                <div class="profile-details" id="profileDetails">
                 </div>
             </div>
         </div>

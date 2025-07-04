@@ -69,16 +69,30 @@ app.get('/api/creators', (req, res) => {
 
 app.get('/api/user/:id', (req, res) => {
   const userId = req.params.id;
-  db.get('SELECT id, username, email FROM users WHERE id = ?', [userId], (err, row) => {
+
+  db.get('SELECT * FROM users WHERE id = ?', [userId], (err, row) => {
     if (err) {
       return res.status(500).json({ success: false, message: 'Database error' });
     }
     if (!row) {
       return res.status(404).json({ success: false, message: 'User not found' });
     }
-    res.json({ success: true, user: row });
+
+    res.json({
+      success: true,
+      message: 'Login successful!',
+      user: {
+        id: row.id,
+        username: row.username,
+        email: row.email,
+        specialty: row.specialty,
+        experience: row.experience,
+        availability: row.availability
+      }
+    });
   });
 });
+
 
 
 app.post('/login', (req, res) => {
@@ -88,7 +102,7 @@ app.post('/login', (req, res) => {
       return res.status(500).json({ success: false, message: 'Database error' });
     }
     if (row) {
-      return res.json({ success: true, message: 'Login successful!', userId: row.id }); // <-- add userId
+      return res.json({ success: true, message: 'Login successful!', userId: row.id }); 
     }
     res.json({ success: false, message: 'Invalid username or password' });
   });
