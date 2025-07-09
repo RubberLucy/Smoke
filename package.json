@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/RubberLucy/Smoke#readme",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "body-parser": "^2.2.0",
     "express": "^5.1.0",
+    "hash": "^0.2.1",
     "nodemon": "^3.1.10",
     "sqlite3": "^5.1.7"
   }

@@ -4,6 +4,7 @@ console.log('Server is starting...');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const bcrypt = require('bcrypt');
 const db = require('./server/db');
 
 // Creating instances
@@ -93,36 +94,43 @@ app.get('/api/user/:id', (req, res) => {
   });
 });
 
-
-
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
-  db.get('SELECT * FROM users WHERE email = ? AND password = ?', [email, password], (err, row) => {
-    if (err) {
-      return res.status(500).json({ success: false, message: 'Database error' });
-    }
-    if (row) {
-      return res.json({ success: true, message: 'Login successful!', userId: row.id }); 
-    }
-    res.json({ success: false, message: 'Invalid username or password' });
+
+  db.get('SELECT * FROM users WHERE email = ?', [email], (err, user) => {
+    if (err) return res.status(500).json({ success: false, message: 'Database error' });
+    if (!user) return res.json({ success: false, message: 'Invalid username or password' });
+
+    bcrypt.compare(password, user.password, (err, result) => {
+      if (err) return res.status(500).json({ success: false, message: 'Hash comparison failed' });
+      if (!result) return res.json({ success: false, message: 'Invalid username or password' });
+
+      res.json({ success: true, message: 'Login successful!', userId: user.id });
+    });
   });
 });
 
 app.post('/register', (req, res) => {
   const { username, email, password } = req.body;
 
-  db.get('SELECT * FROM users WHERE username = ? OR email = ?', [username, email], (row) => {
-    if (row) {
-      return res.send({ success: false, message: 'Username or email already exists' });
-    }
-    db.run('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', [username, email, password], function(err) {
-      if (err) {
-        return res.status(500).send({ success: false, message: 'Registration failed' });
-      }
-      res.send({ success: true, message: 'User registered!' });
+  db.get('SELECT * FROM users WHERE username = ? OR email = ?', [username, email], (err, row) => {
+    if (err) return res.status(500).send({ success: false, message: 'Database error' });
+    if (row) return res.send({ success: false, message: 'Username or email already exists' });
+
+    bcrypt.hash(password, 10, (err, hashedPassword) => {
+      if (err) return res.status(500).send({ success: false, message: 'Hashing failed' });
+
+      db.run('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', [username, email, hashedPassword], function(err) {
+        if (err) return res.status(500).send({ success: false, message: 'Registration failed' });
+
+        res.send({ success: true, message: 'User registered!' });
+      });
     });
   });
 });
+
+
+
 
 app.post('/add-project', (req, res) => {
   const { user_id, title, description, category, status, tags, link, image } = req.body;
